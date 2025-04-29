@@ -1,0 +1,1040 @@
+[
+  {
+    "titulo": "Sushi de Pez Mantequilla",
+    "descripcion": "Peace fall like girl.",
+    "categorias": [
+      "Entradas"
+    ],
+    "precio_individual": 9.85,
+    "disponibilidad": 6,
+    "descuentos": 0.47
+  },
+  {
+    "titulo": "Pasta Carbonara con Panceta",
+    "descripcion": "Significant culture kind back instead.",
+    "categorias": [
+      "Plato fuerte"
+    ],
+    "precio_individual": 25.79,
+    "disponibilidad": 60,
+    "descuentos": 0.47
+  },
+  {
+    "titulo": "Bife de Chorizo",
+    "descripcion": "Baby happen source shake cover group.",
+    "categorias": [
+      "Postres",
+      "Bebidas"
+    ],
+    "precio_individual": 23.58,
+    "disponibilidad": 92,
+    "descuentos": 0.41
+  },
+  {
+    "titulo": "Ceviche de Camarón",
+    "descripcion": "Military one face remain economic garden me.",
+    "categorias": [
+      "Plato fuerte"
+    ],
+    "precio_individual": 37.29,
+    "disponibilidad": 54,
+    "descuentos": 0.06
+  },
+  {
+    "titulo": "Tacos de Barbacoa",
+    "descripcion": "Rich appear large investment result.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 45.55,
+    "disponibilidad": 80,
+    "descuentos": 0.02
+  },
+  {
+    "titulo": "Alitas BBQ",
+    "descripcion": "Language will another plant.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 8.75,
+    "disponibilidad": 24,
+    "descuentos": 0.1
+  },
+  {
+    "titulo": "Pozole Rojo",
+    "descripcion": "Method chance indicate history have what accept.",
+    "categorias": [
+      "Entradas",
+      "Plato fuerte"
+    ],
+    "precio_individual": 22.07,
+    "disponibilidad": 77,
+    "descuentos": 0.23
+  },
+  {
+    "titulo": "Papas Fritas",
+    "descripcion": "Class hot policy.",
+    "categorias": [
+      "Entradas",
+      "Plato fuerte"
+    ],
+    "precio_individual": 45.62,
+    "disponibilidad": 48,
+    "descuentos": 0.36
+  },
+  {
+    "titulo": "Croquetas de Jamón",
+    "descripcion": "Appear either clearly manage.",
+    "categorias": [
+      "Entradas"
+    ],
+    "precio_individual": 20.74,
+    "disponibilidad": 45,
+    "descuentos": 0.49
+  },
+  {
+    "titulo": "Pasta con Pesto de Albahaca",
+    "descripcion": "Far walk chance.",
+    "categorias": [
+      "Plato fuerte",
+      "Postres"
+    ],
+    "precio_individual": 42.8,
+    "disponibilidad": 59,
+    "descuentos": 0.16
+  },
+  {
+    "titulo": "Gyozas de Cerdo",
+    "descripcion": "Research able court well become.",
+    "categorias": [
+      "Bebidas"
+    ],
+    "precio_individual": 29.15,
+    "disponibilidad": 79,
+    "descuentos": 0.24
+  },
+  {
+    "titulo": "Curry Vegetal",
+    "descripcion": "Teacher surface surface.",
+    "categorias": [
+      "Bebidas",
+      "Postres"
+    ],
+    "precio_individual": 5.91,
+    "disponibilidad": 6,
+    "descuentos": 0.12
+  },
+  {
+    "titulo": "Burrito de Carne",
+    "descripcion": "Produce business if event protect moment.",
+    "categorias": [
+      "Bebidas",
+      "Plato fuerte"
+    ],
+    "precio_individual": 6.74,
+    "disponibilidad": 33,
+    "descuentos": 0.47
+  },
+  {
+    "titulo": "Té de Manzanilla",
+    "descripcion": "Stage song simple health former matter picture protect.",
+    "categorias": [
+      "Postres",
+      "Entradas"
+    ],
+    "precio_individual": 21.1,
+    "disponibilidad": 60,
+    "descuentos": 0.14
+  },
+  {
+    "titulo": "Torta Cubana",
+    "descripcion": "Word who development.",
+    "categorias": [
+      "Entradas"
+    ],
+    "precio_individual": 45.62,
+    "disponibilidad": 37,
+    "descuentos": 0.14
+  },
+  {
+    "titulo": "Pan de Bono",
+    "descripcion": "Avoid interview piece indicate security hotel cause.",
+    "categorias": [
+      "Bebidas",
+      "Entradas"
+    ],
+    "precio_individual": 23.37,
+    "disponibilidad": 72,
+    "descuentos": 0.45
+  },
+  {
+    "titulo": "Nachos con Queso",
+    "descripcion": "Feel four accept again.",
+    "categorias": [
+      "Bebidas",
+      "Entradas"
+    ],
+    "precio_individual": 44.37,
+    "disponibilidad": 85,
+    "descuentos": 0.3
+  },
+  {
+    "titulo": "Lomo Saltado",
+    "descripcion": "Report rather pattern pay million.",
+    "categorias": [
+      "Bebidas",
+      "Entradas"
+    ],
+    "precio_individual": 35.49,
+    "disponibilidad": 7,
+    "descuentos": 0.14
+  },
+  {
+    "titulo": "Chilaquiles Rojos",
+    "descripcion": "Heavy history part minute minute another matter.",
+    "categorias": [
+      "Entradas"
+    ],
+    "precio_individual": 43.77,
+    "disponibilidad": 68,
+    "descuentos": 0.12
+  },
+  {
+    "titulo": "Risotto de Setas",
+    "descripcion": "Federal language series must.",
+    "categorias": [
+      "Plato fuerte",
+      "Entradas"
+    ],
+    "precio_individual": 16.24,
+    "disponibilidad": 67,
+    "descuentos": 0.46
+  },
+  {
+    "titulo": "Tacos de Carnitas",
+    "descripcion": "Describe fear paper report visit help public face.",
+    "categorias": [
+      "Entradas",
+      "Bebidas"
+    ],
+    "precio_individual": 21.69,
+    "disponibilidad": 12,
+    "descuentos": 0.19
+  },
+  {
+    "titulo": "Papas Gajo",
+    "descripcion": "New style little whether.",
+    "categorias": [
+      "Bebidas",
+      "Postres"
+    ],
+    "precio_individual": 44.03,
+    "disponibilidad": 35,
+    "descuentos": 0.46
+  },
+  {
+    "titulo": "Hamburguesa de Pollo",
+    "descripcion": "Just will system institution edge try according.",
+    "categorias": [
+      "Plato fuerte",
+      "Entradas"
+    ],
+    "precio_individual": 41.02,
+    "disponibilidad": 54,
+    "descuentos": 0.04
+  },
+  {
+    "titulo": "Alitas BBQ",
+    "descripcion": "Reflect table study group guy five.",
+    "categorias": [
+      "Plato fuerte"
+    ],
+    "precio_individual": 15.72,
+    "disponibilidad": 93,
+    "descuentos": 0.11
+  },
+  {
+    "titulo": "Costillas BBQ",
+    "descripcion": "Class also keep understand.",
+    "categorias": [
+      "Postres",
+      "Bebidas"
+    ],
+    "precio_individual": 45.71,
+    "disponibilidad": 59,
+    "descuentos": 0.3
+  },
+  {
+    "titulo": "Empanadas de Queso",
+    "descripcion": "Its find visit charge strong another.",
+    "categorias": [
+      "Bebidas"
+    ],
+    "precio_individual": 11.27,
+    "disponibilidad": 21,
+    "descuentos": 0.5
+  },
+  {
+    "titulo": "Quesadillas de Queso",
+    "descripcion": "Natural land similar free opportunity care inside chance.",
+    "categorias": [
+      "Plato fuerte"
+    ],
+    "precio_individual": 17.21,
+    "disponibilidad": 81,
+    "descuentos": 0.27
+  },
+  {
+    "titulo": "Pulpo a la Gallega",
+    "descripcion": "Do box action fight PM body.",
+    "categorias": [
+      "Plato fuerte",
+      "Bebidas"
+    ],
+    "precio_individual": 48.91,
+    "disponibilidad": 61,
+    "descuentos": 0.35
+  },
+  {
+    "titulo": "Arroz Chaufa",
+    "descripcion": "Should model owner long present group require.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 15.19,
+    "disponibilidad": 89,
+    "descuentos": 0.45
+  },
+  {
+    "titulo": "Hamburguesa Vegetariana",
+    "descripcion": "Deep ask camera shoulder firm next contain.",
+    "categorias": [
+      "Postres",
+      "Bebidas"
+    ],
+    "precio_individual": 48.21,
+    "disponibilidad": 33,
+    "descuentos": 0.06
+  },
+  {
+    "titulo": "Pollo Frito",
+    "descripcion": "Heavy perhaps structure strong data interesting together.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 17.09,
+    "disponibilidad": 50,
+    "descuentos": 0.29
+  },
+  {
+    "titulo": "Pasta Pesto",
+    "descripcion": "Well purpose sometimes night somebody bit.",
+    "categorias": [
+      "Plato fuerte"
+    ],
+    "precio_individual": 38.04,
+    "disponibilidad": 13,
+    "descuentos": 0.28
+  },
+  {
+    "titulo": "Té Verde",
+    "descripcion": "Put by quickly bar.",
+    "categorias": [
+      "Entradas",
+      "Plato fuerte"
+    ],
+    "precio_individual": 23.17,
+    "disponibilidad": 18,
+    "descuentos": 0.1
+  },
+  {
+    "titulo": "Canelones de Espinacas",
+    "descripcion": "Operation tonight edge today your.",
+    "categorias": [
+      "Plato fuerte"
+    ],
+    "precio_individual": 47.57,
+    "disponibilidad": 81,
+    "descuentos": 0.24
+  },
+  {
+    "titulo": "Pasta Alfredo",
+    "descripcion": "Thank government reach agency go top.",
+    "categorias": [
+      "Bebidas",
+      "Postres"
+    ],
+    "precio_individual": 30.62,
+    "disponibilidad": 10,
+    "descuentos": 0.38
+  },
+  {
+    "titulo": "Tarta de Limón",
+    "descripcion": "That bill score enough.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 44.49,
+    "disponibilidad": 24,
+    "descuentos": 0.07
+  },
+  {
+    "titulo": "Sushi de Salmón",
+    "descripcion": "Know management administration.",
+    "categorias": [
+      "Plato fuerte"
+    ],
+    "precio_individual": 37.49,
+    "disponibilidad": 52,
+    "descuentos": 0.25
+  },
+  {
+    "titulo": "Canelones de Carne",
+    "descripcion": "Bring make avoid.",
+    "categorias": [
+      "Entradas",
+      "Bebidas"
+    ],
+    "precio_individual": 45.58,
+    "disponibilidad": 90,
+    "descuentos": 0.49
+  },
+  {
+    "titulo": "Sopa Pho",
+    "descripcion": "Growth understand various face never toward teacher.",
+    "categorias": [
+      "Entradas"
+    ],
+    "precio_individual": 6.59,
+    "disponibilidad": 95,
+    "descuentos": 0.37
+  },
+  {
+    "titulo": "Empanadas de Pollo",
+    "descripcion": "Authority marriage exactly kind event.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 13.54,
+    "disponibilidad": 69,
+    "descuentos": 0.17
+  },
+  {
+    "titulo": "Helado de Vainilla",
+    "descripcion": "Floor gun environment dream.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 49.96,
+    "disponibilidad": 54,
+    "descuentos": 0.1
+  },
+  {
+    "titulo": "Arepas Rellenas",
+    "descripcion": "Less brother least challenge about.",
+    "categorias": [
+      "Postres",
+      "Entradas"
+    ],
+    "precio_individual": 28.35,
+    "disponibilidad": 100,
+    "descuentos": 0.24
+  },
+  {
+    "titulo": "Refresco de Cola",
+    "descripcion": "Them night bit tend true party.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 39.01,
+    "disponibilidad": 97,
+    "descuentos": 0.47
+  },
+  {
+    "titulo": "Lomo Saltado",
+    "descripcion": "Good rule owner board hot including brother light.",
+    "categorias": [
+      "Entradas",
+      "Plato fuerte"
+    ],
+    "precio_individual": 32.55,
+    "disponibilidad": 61,
+    "descuentos": 0.16
+  },
+  {
+    "titulo": "Pulpo a la Gallega",
+    "descripcion": "National whom political traditional modern.",
+    "categorias": [
+      "Plato fuerte"
+    ],
+    "precio_individual": 12.78,
+    "disponibilidad": 1,
+    "descuentos": 0.04
+  },
+  {
+    "titulo": "Mousse de Limón",
+    "descripcion": "Public resource lawyer ok put surface born.",
+    "categorias": [
+      "Plato fuerte",
+      "Bebidas"
+    ],
+    "precio_individual": 10.93,
+    "disponibilidad": 10,
+    "descuentos": 0.22
+  },
+  {
+    "titulo": "Smoothie Verde",
+    "descripcion": "Garden animal which conference.",
+    "categorias": [
+      "Entradas"
+    ],
+    "precio_individual": 31.52,
+    "disponibilidad": 26,
+    "descuentos": 0.04
+  },
+  {
+    "titulo": "Bebida de Horchata",
+    "descripcion": "Like its gun brother join.",
+    "categorias": [
+      "Bebidas"
+    ],
+    "precio_individual": 11.55,
+    "disponibilidad": 78,
+    "descuentos": 0.45
+  },
+  {
+    "titulo": "Filete Mignon",
+    "descripcion": "Line my door.",
+    "categorias": [
+      "Plato fuerte",
+      "Entradas"
+    ],
+    "precio_individual": 25.16,
+    "disponibilidad": 15,
+    "descuentos": 0.02
+  },
+  {
+    "titulo": "Camarones Empanizados",
+    "descripcion": "Half method make.",
+    "categorias": [
+      "Bebidas"
+    ],
+    "precio_individual": 48.62,
+    "disponibilidad": 33,
+    "descuentos": 0.25
+  },
+  {
+    "titulo": "Té Helado",
+    "descripcion": "National to since center.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 25.8,
+    "disponibilidad": 68,
+    "descuentos": 0.12
+  },
+  {
+    "titulo": "Sopa de Tomate",
+    "descripcion": "Decide likely lawyer her financial.",
+    "categorias": [
+      "Plato fuerte",
+      "Postres"
+    ],
+    "precio_individual": 13.15,
+    "disponibilidad": 98,
+    "descuentos": 0.03
+  },
+  {
+    "titulo": "Bebida de Horchata",
+    "descripcion": "Trade five house road again live brother give.",
+    "categorias": [
+      "Plato fuerte",
+      "Entradas"
+    ],
+    "precio_individual": 45.67,
+    "disponibilidad": 53,
+    "descuentos": 0.19
+  },
+  {
+    "titulo": "Pollo Teriyaki",
+    "descripcion": "Reality deep something nature agency cost upon.",
+    "categorias": [
+      "Plato fuerte",
+      "Postres"
+    ],
+    "precio_individual": 15.59,
+    "disponibilidad": 24,
+    "descuentos": 0.29
+  },
+  {
+    "titulo": "Paella Valenciana",
+    "descripcion": "Author international affect actually open.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 8.39,
+    "disponibilidad": 81,
+    "descuentos": 0.26
+  },
+  {
+    "titulo": "Arepas Rellenas",
+    "descripcion": "Morning property PM.",
+    "categorias": [
+      "Bebidas"
+    ],
+    "precio_individual": 16.24,
+    "disponibilidad": 74,
+    "descuentos": 0.42
+  },
+  {
+    "titulo": "Bife de Chorizo",
+    "descripcion": "Cost ability ago material.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 18.03,
+    "disponibilidad": 32,
+    "descuentos": 0.31
+  },
+  {
+    "titulo": "Croissant de Chocolate",
+    "descripcion": "Perform fly religious position body book scene.",
+    "categorias": [
+      "Plato fuerte",
+      "Postres"
+    ],
+    "precio_individual": 33.43,
+    "disponibilidad": 81,
+    "descuentos": 0.16
+  },
+  {
+    "titulo": "Café Latte",
+    "descripcion": "Deep house outside memory subject.",
+    "categorias": [
+      "Entradas"
+    ],
+    "precio_individual": 11.65,
+    "disponibilidad": 69,
+    "descuentos": 0.25
+  },
+  {
+    "titulo": "Burritos Veganos",
+    "descripcion": "Performance billion both purpose interview family little.",
+    "categorias": [
+      "Entradas",
+      "Bebidas"
+    ],
+    "precio_individual": 19.28,
+    "disponibilidad": 100,
+    "descuentos": 0.1
+  },
+  {
+    "titulo": "Camarones Empanizados",
+    "descripcion": "Month much improve with.",
+    "categorias": [
+      "Postres",
+      "Entradas"
+    ],
+    "precio_individual": 37.47,
+    "disponibilidad": 99,
+    "descuentos": 0.04
+  },
+  {
+    "titulo": "Pollo a la Naranja",
+    "descripcion": "Test cost part man cost executive.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 22.03,
+    "disponibilidad": 19,
+    "descuentos": 0.18
+  },
+  {
+    "titulo": "Papas Gajo",
+    "descripcion": "Authority fact involve its movie weight after.",
+    "categorias": [
+      "Bebidas"
+    ],
+    "precio_individual": 43.58,
+    "disponibilidad": 78,
+    "descuentos": 0.27
+  },
+  {
+    "titulo": "Mojos de Ajo",
+    "descripcion": "Hundred for stage special star despite figure.",
+    "categorias": [
+      "Entradas",
+      "Bebidas"
+    ],
+    "precio_individual": 30.41,
+    "disponibilidad": 62,
+    "descuentos": 0.47
+  },
+  {
+    "titulo": "Tostadas de Pollo con Guacamole",
+    "descripcion": "Should next positive son break red.",
+    "categorias": [
+      "Entradas"
+    ],
+    "precio_individual": 11.01,
+    "disponibilidad": 50,
+    "descuentos": 0.06
+  },
+  {
+    "titulo": "Torta Cubana",
+    "descripcion": "Land discuss first culture guess send part.",
+    "categorias": [
+      "Entradas"
+    ],
+    "precio_individual": 31.95,
+    "disponibilidad": 80,
+    "descuentos": 0.06
+  },
+  {
+    "titulo": "Pasta con Salsa de Tomate",
+    "descripcion": "Thing age offer thus southern various.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 9.24,
+    "disponibilidad": 75,
+    "descuentos": 0.33
+  },
+  {
+    "titulo": "Pollo Frito",
+    "descripcion": "Choose food social trip.",
+    "categorias": [
+      "Bebidas",
+      "Postres"
+    ],
+    "precio_individual": 44.28,
+    "disponibilidad": 86,
+    "descuentos": 0.05
+  },
+  {
+    "titulo": "Risotto de Setas",
+    "descripcion": "Notice author each center tell.",
+    "categorias": [
+      "Plato fuerte"
+    ],
+    "precio_individual": 8.23,
+    "disponibilidad": 21,
+    "descuentos": 0.04
+  },
+  {
+    "titulo": "Camarones al Ajillo",
+    "descripcion": "End goal cover production.",
+    "categorias": [
+      "Bebidas",
+      "Plato fuerte"
+    ],
+    "precio_individual": 10.21,
+    "disponibilidad": 37,
+    "descuentos": 0.03
+  },
+  {
+    "titulo": "Tacos de Cochinita Pibil",
+    "descripcion": "Bar become trial perform fact.",
+    "categorias": [
+      "Entradas"
+    ],
+    "precio_individual": 24.97,
+    "disponibilidad": 11,
+    "descuentos": 0.02
+  },
+  {
+    "titulo": "Huevos Rancheros",
+    "descripcion": "Check develop popular.",
+    "categorias": [
+      "Entradas"
+    ],
+    "precio_individual": 40.76,
+    "disponibilidad": 27,
+    "descuentos": 0.13
+  },
+  {
+    "titulo": "Tacos de Pescado",
+    "descripcion": "Chance commercial two expect together guess see.",
+    "categorias": [
+      "Bebidas"
+    ],
+    "precio_individual": 30.32,
+    "disponibilidad": 100,
+    "descuentos": 0.32
+  },
+  {
+    "titulo": "Tostadas Francesas",
+    "descripcion": "Onto good bad particularly nature into class.",
+    "categorias": [
+      "Bebidas"
+    ],
+    "precio_individual": 37.27,
+    "disponibilidad": 79,
+    "descuentos": 0.21
+  },
+  {
+    "titulo": "Café Americano",
+    "descripcion": "Believe science color interesting.",
+    "categorias": [
+      "Entradas"
+    ],
+    "precio_individual": 7.96,
+    "disponibilidad": 99,
+    "descuentos": 0.49
+  },
+  {
+    "titulo": "Pizza Vegetariana",
+    "descripcion": "Resource his record forget finally bad father.",
+    "categorias": [
+      "Postres",
+      "Bebidas"
+    ],
+    "precio_individual": 41.81,
+    "disponibilidad": 1,
+    "descuentos": 0.44
+  },
+  {
+    "titulo": "Sushi de Atún",
+    "descripcion": "As also language pattern.",
+    "categorias": [
+      "Plato fuerte",
+      "Entradas"
+    ],
+    "precio_individual": 33.0,
+    "disponibilidad": 47,
+    "descuentos": 0.31
+  },
+  {
+    "titulo": "Kebabs de Pollo",
+    "descripcion": "Third approach lose drug.",
+    "categorias": [
+      "Bebidas",
+      "Entradas"
+    ],
+    "precio_individual": 41.95,
+    "disponibilidad": 88,
+    "descuentos": 0.22
+  },
+  {
+    "titulo": "Moussaka",
+    "descripcion": "Especially concern for mind worry mention different.",
+    "categorias": [
+      "Postres",
+      "Bebidas"
+    ],
+    "precio_individual": 9.3,
+    "disponibilidad": 55,
+    "descuentos": 0.41
+  },
+  {
+    "titulo": "Torta de Carne",
+    "descripcion": "Force event add visit.",
+    "categorias": [
+      "Entradas"
+    ],
+    "precio_individual": 11.95,
+    "disponibilidad": 4,
+    "descuentos": 0.42
+  },
+  {
+    "titulo": "Tostadas de Pollo con Guacamole",
+    "descripcion": "Week along study today great.",
+    "categorias": [
+      "Bebidas",
+      "Entradas"
+    ],
+    "precio_individual": 30.3,
+    "disponibilidad": 28,
+    "descuentos": 0.49
+  },
+  {
+    "titulo": "Yakisoba",
+    "descripcion": "Several look real hold open member.",
+    "categorias": [
+      "Plato fuerte",
+      "Postres"
+    ],
+    "precio_individual": 11.29,
+    "disponibilidad": 22,
+    "descuentos": 0.11
+  },
+  {
+    "titulo": "Fideos Chinos con Vegetales",
+    "descripcion": "Game anyone manage again goal at.",
+    "categorias": [
+      "Postres",
+      "Bebidas"
+    ],
+    "precio_individual": 22.24,
+    "disponibilidad": 14,
+    "descuentos": 0.29
+  },
+  {
+    "titulo": "Milanesa de Pollo",
+    "descripcion": "Themselves ahead bag dark experience you start.",
+    "categorias": [
+      "Entradas",
+      "Postres"
+    ],
+    "precio_individual": 27.46,
+    "disponibilidad": 12,
+    "descuentos": 0.18
+  },
+  {
+    "titulo": "Smoothie Verde",
+    "descripcion": "Teacher law standard option together.",
+    "categorias": [
+      "Bebidas"
+    ],
+    "precio_individual": 28.23,
+    "disponibilidad": 16,
+    "descuentos": 0.23
+  },
+  {
+    "titulo": "Panqueques",
+    "descripcion": "Lawyer group nor stock around organization its.",
+    "categorias": [
+      "Bebidas",
+      "Postres"
+    ],
+    "precio_individual": 10.57,
+    "disponibilidad": 100,
+    "descuentos": 0.39
+  },
+  {
+    "titulo": "Spaghetti Bolognesa",
+    "descripcion": "Choose stay put her despite work.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 34.91,
+    "disponibilidad": 68,
+    "descuentos": 0.34
+  },
+  {
+    "titulo": "Panqueques",
+    "descripcion": "Shake peace country around teacher visit eight.",
+    "categorias": [
+      "Plato fuerte",
+      "Bebidas"
+    ],
+    "precio_individual": 24.79,
+    "disponibilidad": 20,
+    "descuentos": 0.41
+  },
+  {
+    "titulo": "Tostadas de Aguacate",
+    "descripcion": "Major none child not democratic leader.",
+    "categorias": [
+      "Plato fuerte"
+    ],
+    "precio_individual": 22.71,
+    "disponibilidad": 4,
+    "descuentos": 0.35
+  },
+  {
+    "titulo": "Pastel de Chocolate",
+    "descripcion": "Follow matter happen less form.",
+    "categorias": [
+      "Plato fuerte",
+      "Postres"
+    ],
+    "precio_individual": 28.73,
+    "disponibilidad": 45,
+    "descuentos": 0.31
+  },
+  {
+    "titulo": "Empanadas de Pollo",
+    "descripcion": "Then our should those six change ready.",
+    "categorias": [
+      "Entradas",
+      "Postres"
+    ],
+    "precio_individual": 29.07,
+    "disponibilidad": 97,
+    "descuentos": 0.1
+  },
+  {
+    "titulo": "Bebida de Tamarindo",
+    "descripcion": "Computer agency side shoulder popular listen information.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 7.27,
+    "disponibilidad": 87,
+    "descuentos": 0.01
+  },
+  {
+    "titulo": "Tarta de Manzana",
+    "descripcion": "Crime member believe hospital.",
+    "categorias": [
+      "Entradas",
+      "Postres"
+    ],
+    "precio_individual": 49.62,
+    "disponibilidad": 14,
+    "descuentos": 0.31
+  },
+  {
+    "titulo": "Curry de Pollo",
+    "descripcion": "Various capital enjoy political account his.",
+    "categorias": [
+      "Entradas"
+    ],
+    "precio_individual": 31.03,
+    "disponibilidad": 43,
+    "descuentos": 0.46
+  },
+  {
+    "titulo": "Tarta de Limón",
+    "descripcion": "Follow lot air report.",
+    "categorias": [
+      "Plato fuerte",
+      "Entradas"
+    ],
+    "precio_individual": 11.2,
+    "disponibilidad": 68,
+    "descuentos": 0.29
+  },
+  {
+    "titulo": "Crepas de Nutella",
+    "descripcion": "Certain mention our major cut institution research.",
+    "categorias": [
+      "Bebidas"
+    ],
+    "precio_individual": 28.94,
+    "disponibilidad": 73,
+    "descuentos": 0.08
+  },
+  {
+    "titulo": "Batido de Banana",
+    "descripcion": "Popular country beyond.",
+    "categorias": [
+      "Postres"
+    ],
+    "precio_individual": 31.38,
+    "disponibilidad": 82,
+    "descuentos": 0.36
+  },
+  {
+    "titulo": "Pasta Alfredo",
+    "descripcion": "Standard after make.",
+    "categorias": [
+      "Plato fuerte"
+    ],
+    "precio_individual": 29.79,
+    "disponibilidad": 75,
+    "descuentos": 0.31
+  },
+  {
+    "titulo": "Té de Manzanilla",
+    "descripcion": "Democrat until industry.",
+    "categorias": [
+      "Plato fuerte",
+      "Entradas"
+    ],
+    "precio_individual": 6.43,
+    "disponibilidad": 81,
+    "descuentos": 0.47
+  }
+]
