@@ -1,9 +1,23 @@
-import express from 'express';
+import express, { json } from 'express';
+import cors from 'cors';
 import { connectToMongo } from './mongoDB-connection.js';
 
 const app = express();
-app.use(express.json());
+app.use(cors());
+app.use(json());
 
+app.get('/status', (req, res) => {
+    res.json({ message: 'API funcionando correctamente 🚀' });
+});
+
+// Importar las rutas
+import consultDocs from './consult_docs.js';
+app.use('', consultDocs);
+
+import updateDocs from './update_docs.js';
+app.use('', updateDocs);
+
+// Completar conexión
 connectToMongo()
   .then(() => {
     app.listen(3000, () => {
