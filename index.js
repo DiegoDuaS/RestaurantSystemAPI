@@ -11,11 +11,17 @@ app.get('/status', (req, res) => {
 });
 
 // Importar las rutas
+import createDocs from './create_docs.js';
+app.use('', createDocs);
+
 import consultDocs from './consult_docs.js';
 app.use('', consultDocs);
 
 import updateDocs from './update_docs.js';
 app.use('', updateDocs);
+
+import deleteDocs from './delete_docs.js';
+app.use('', deleteDocs);
 
 // Completar conexión
 connectToMongo()
