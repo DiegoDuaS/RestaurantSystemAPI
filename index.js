@@ -1,17 +1,15 @@
-const express = require('express');
+import express from 'express';
+import { connectToMongo } from './mongoDB-connection.js';
+
 const app = express();
-
-const PORT = 3000;
-
-// Middleware opcional
 app.use(express.json());
 
-// Ruta de ejemplo
-app.get('/', (req, res) => {
-  res.send('¡Hola desde Express!');
-});
-
-// Iniciar servidor
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
+connectToMongo()
+  .then(() => {
+    app.listen(3000, () => {
+      console.log("Servidor escuchando en puerto 3000");
+    });
+  })
+  .catch((err) => {
+    console.error("No se pudo iniciar el servidor por error en MongoDB", err);
+  });
