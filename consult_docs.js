@@ -40,6 +40,48 @@ router.post('/filter', async (req, res) => {
     }
 });
 
+/**
+ * POST /projection
+ * Consulta documentos y devuelve solo los campos especificados.
+ * 
+ * Body esperado:
+ * {
+ *      collection - Nombre de la colección a consultar (obligatorio).
+ *      filter - Filtro MongoDB para buscar documentos (opcional).
+ *      projection - Campos a incluir/excluir (ej: { name: 1, address: 1, _id: 0 }).
+ * }
+ * 
+ * Respuesta:
+ * Lista de documentos con solo los campos proyectados.
+ */
+router.post('/projection', async (req, res) => {
+    const db = getDB();
+    const { collection, filter = {}, projection = {} } = req.body;
+
+    if (!collection) {
+        return res.status(400).json({ error: 'Falta el nombre de la colección' });
+    }
+
+    if (Object.keys(projection).length === 0) {
+        return res.status(400).json({ error: 'Debes especificar al menos un campo en la proyección' });
+    }
+
+    try {
+        const docs = await db.collection(collection)
+            .find(filter)
+            .project(projection)
+            .toArray();
+
+        res.json({ 
+            count: docs.length,
+            results: docs 
+        });
+    } catch (error) {
+        console.error('Error al aplicar proyección:', error);
+        res.status(500).json({ error: 'Error en la base de datos' });
+    }
+});
+
 
 /**
  * POST /skip
