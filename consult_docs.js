@@ -3,6 +3,44 @@ import { getDB } from './mongoDB-connection.js';
 
 const router = express.Router();
 
+
+/**
+ * POST /filter
+ * Consulta documentos aplicando filtros específicos.
+ * 
+ * Body esperado:
+ * {
+ *      collection - Nombre de la colección a consultar (obligatorio).
+ *      filter - Filtro MongoDB para buscar documentos (ej: { rating: { $gte: 4 } }).
+ * }
+ * 
+ * Respuesta:
+ * Lista de documentos que coinciden con el filtro.
+ */
+router.post('/filter', async (req, res) => {
+    const db = getDB();
+    const { collection, filter = {} } = req.body;
+
+    if (!collection) {
+        return res.status(400).json({ error: 'Falta el nombre de la colección' });
+    }
+
+    try {
+        const docs = await db.collection(collection)
+            .find(filter)
+            .toArray();
+
+        res.json({ 
+            count: docs.length,
+            results: docs 
+        });
+    } catch (error) {
+        console.error('Error al aplicar filtro:', error);
+        res.status(500).json({ error: 'Error en la base de datos' });
+    }
+});
+
+
 /**
  * POST /skip
  * Consulta documentos desde una colección aplicando un valor de 'skip' para paginación.
