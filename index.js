@@ -2,6 +2,7 @@ import express, { json } from 'express';
 import cors from 'cors';
 import { connectToMongo } from './mongoDB-connection.js';
 
+
 const app = express();
 app.use(cors());
 app.use(json());
@@ -22,6 +23,9 @@ app.use('', updateDocs);
 
 import deleteDocs from './delete_docs.js';
 app.use('', deleteDocs);
+
+import indexCreation from './index_creation.js';
+app.use('', indexCreation);
 
 // Completar conexión
 connectToMongo()
