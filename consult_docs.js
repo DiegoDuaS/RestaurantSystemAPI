@@ -84,6 +84,48 @@ router.post('/projection', async (req, res) => {
 
 
 /**
+ * POST /sort
+ * Consulta documentos ordenados según criterios específicos.
+ * 
+ * Body esperado:
+ * {
+ *      collection - Nombre de la colección a consultar (obligatorio).
+ *      filter - Filtro MongoDB para buscar documentos (opcional).
+ *      sort - Criterios de ordenamiento (ej: { rating: -1, name: 1 }).
+ * }
+ * 
+ * Respuesta:
+ * Lista de documentos ordenados según el criterio.
+ */
+router.post('/sort', async (req, res) => {
+    const db = getDB();
+    const { collection, filter = {}, sort = {} } = req.body;
+
+    if (!collection) {
+        return res.status(400).json({ error: 'Falta el nombre de la colección' });
+    }
+
+    if (Object.keys(sort).length === 0) {
+        return res.status(400).json({ error: 'Debes especificar al menos un campo para ordenar' });
+    }
+
+    try {
+        const docs = await db.collection(collection)
+            .find(filter)
+            .sort(sort)
+            .toArray();
+
+        res.json({ 
+            count: docs.length,
+            results: docs 
+        });
+    } catch (error) {
+        console.error('Error al aplicar ordenamiento:', error);
+        res.status(500).json({ error: 'Error en la base de datos' });
+    }
+});
+
+/**
  * POST /skip
  * Consulta documentos desde una colección aplicando un valor de 'skip' para paginación.
  * 
