@@ -26,19 +26,34 @@ router.post('/filter', async (req, res) => {
     }
 
     try {
-        const docs = await db.collection(collection)
-            .find(filter)
-            .toArray();
+        const col = db.collection(collection);
+
+        // Analiza el plan de ejecución
+        const explainResult = await col.find(filter).explain("executionStats");
+        const executionStage = explainResult.executionStats.executionStages;
+
+        // Si el plan principal es COLLSCAN, la consulta no usó índice
+        if (executionStage.stage === "COLLSCAN" || 
+            (executionStage.inputStage && executionStage.inputStage.stage === "COLLSCAN")) {
+            return res.status(400).json({ 
+                error: 'La consulta fue rechazada porque no utiliza ningún índice (COLLSCAN detectado).' 
+            });
+        }
+
+        // Ejecutar consulta real si pasó el filtro
+        const docs = await col.find(filter).toArray();
 
         res.json({ 
             count: docs.length,
             results: docs 
         });
+
     } catch (error) {
         console.error('Error al aplicar filtro:', error);
         res.status(500).json({ error: 'Error en la base de datos' });
     }
 });
+
 
 /**
  * POST /projection
@@ -67,20 +82,38 @@ router.post('/projection', async (req, res) => {
     }
 
     try {
-        const docs = await db.collection(collection)
-            .find(filter)
-            .project(projection)
-            .toArray();
+        const col = db.collection(collection);
 
-        res.json({ 
+        // Si el filtro NO está vacío, validar que no haya COLLSCAN
+        if (Object.keys(filter).length > 0) {
+            const explain = await col.find(filter).project(projection).explain("executionStats");
+            const stage = explain.executionStats.executionStages;
+
+            const isCollscan = s =>
+                s.stage === "COLLSCAN" || 
+                (s.inputStage && s.inputStage.stage === "COLLSCAN");
+
+            if (isCollscan(stage)) {
+                return res.status(400).json({
+                    error: '❌ Consulta rechazada: no se está utilizando un índice (COLLSCAN detectado)'
+                });
+            }
+        }
+
+        // Ejecutar la consulta normalmente
+        const docs = await col.find(filter).project(projection).toArray();
+
+        res.json({
             count: docs.length,
-            results: docs 
+            results: docs
         });
+
     } catch (error) {
         console.error('Error al aplicar proyección:', error);
         res.status(500).json({ error: 'Error en la base de datos' });
     }
 });
+
 
 
 /**
