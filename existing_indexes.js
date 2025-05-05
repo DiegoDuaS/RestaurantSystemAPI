@@ -23,6 +23,9 @@ async function crearIndices() {
     console.log('Índices multikey creados"');
 
     // Índice geoespaciales
+    await restaurantes.createIndex({ direccion: 1 });
+    await usuarios.createIndex({ direccion: 1 });
+    console.log('Índices geoespaciales procesados');
 
     // Índice de texto para búsquedas en múltiples campos
 
