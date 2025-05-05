@@ -1,8 +1,8 @@
 import express from 'express';
 import { getDB } from './mongoDB-connection.js';
+import { ObjectId } from 'mongodb';
 
 const router = express.Router();
-
 
 /**
  * POST /filter
@@ -192,6 +192,84 @@ router.post('/limit', async (req, res) => {
     } catch (error) {
         console.error('Error al consultar con limit:', error);
         res.status(500).json({ error: 'Error en la base de datos' });
+    }
+});
+
+/**
+ * POST /aggregate/query
+ * Consulta avanzada usando aggregation pipeline.
+ * Permite aplicar filtros ($match), proyecciones ($project), ordenamiento ($sort),
+ * paginación con skip ($skip) y límite ($limit), todo en una sola operación.
+ * 
+ * Body esperado:
+ * {
+ *    collection - Nombre de la colección a consultar (obligatorio).
+ *    match - Objeto de filtrado tipo MongoDB ($match).
+ *    project - Objeto de proyección de campos ($project).
+ *    sort - Objeto para ordenar resultados ($sort).
+ *    skip - Número de documentos a omitir (paginación).
+ *    limit - Número máximo de documentos a devolver.
+ * }
+ * 
+ * Respuesta:
+ * {
+ *    results: [ ...documentos... ],
+ *    count: Número de documentos devueltos
+ * }
+ */
+router.post('/aggregate/query', async (req, res) => {
+    const db = getDB();
+    const {
+        collection,
+        match = {},
+        project,
+        sort,
+        skip = 0,
+        limit = 10
+    } = req.body;
+
+    if (!collection) {
+        return res.status(400).json({ error: 'Se requiere el nombre de la colección' });
+    }
+
+    try {
+        // Convertir _id si es necesario
+        if (match._id && typeof match._id === 'string') {
+            if (ObjectId.isValid(match._id)) {
+               match._id = new ObjectId(match._id);
+            } else {
+               return res.status(400).json({ error: 'El _id proporcionado no es válido' });
+            }
+        }
+
+        const pipeline = [];
+
+        if (Object.keys(match).length > 0) {
+            pipeline.push({ $match: match });
+        }
+
+        if (project) {
+            pipeline.push({ $project: project });
+        }
+
+        if (sort) {
+            pipeline.push({ $sort: sort });
+        }
+
+        if (skip > 0) {
+            pipeline.push({ $skip: skip });
+        }
+
+        if (limit > 0) {
+            pipeline.push({ $limit: limit });
+        }
+
+        const result = await db.collection(collection).aggregate(pipeline).toArray();
+
+        res.json({ results: result, count: result.length });
+    } catch (error) {
+        console.error('Error en agregación:', error);
+        res.status(500).json({ error: 'Error al ejecutar el pipeline de agregación' });
     }
 });
 
