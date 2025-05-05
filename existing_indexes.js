@@ -28,7 +28,11 @@ async function crearIndices() {
     console.log('Índices geoespaciales procesados');
 
     // Índice de texto para búsquedas en múltiples campos
-
+    await restaurantes.createIndex({ nombre: 1, tipo: 1, direccion: 1 });
+    await articulosMenu.createIndex({ titulo: 1, descripcion: 1 });
+    await resenas.createIndex({ comentario: 1 });
+    console.log('Índices de texto creados');
+    
   } catch (error) {
     console.error('Error al crear índices:', error);
   }
