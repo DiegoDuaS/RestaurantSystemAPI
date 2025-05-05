@@ -95,7 +95,7 @@ router.post('/projection', async (req, res) => {
 
             if (isCollscan(stage)) {
                 return res.status(400).json({
-                    error: '❌ Consulta rechazada: no se está utilizando un índice (COLLSCAN detectado)'
+                    error: 'Consulta rechazada: no se está utilizando un índice (COLLSCAN detectado)'
                 });
             }
         }
@@ -143,20 +143,38 @@ router.post('/sort', async (req, res) => {
     }
 
     try {
-        const docs = await db.collection(collection)
-            .find(filter)
-            .sort(sort)
-            .toArray();
+        const col = db.collection(collection);
 
-        res.json({ 
+        // Si el filtro NO está vacío, validar el uso de índice
+        if (Object.keys(filter).length > 0) {
+            const explain = await col.find(filter).sort(sort).explain("executionStats");
+            const stage = explain.executionStats.executionStages;
+
+            const isCollscan = s =>
+                s.stage === "COLLSCAN" || 
+                (s.inputStage && s.inputStage.stage === "COLLSCAN");
+
+            if (isCollscan(stage)) {
+                return res.status(400).json({
+                    error: 'Consulta rechazada: no se está utilizando un índice (COLLSCAN detectado)'
+                });
+            }
+        }
+
+        // Ejecutar la consulta normalmente
+        const docs = await col.find(filter).sort(sort).toArray();
+
+        res.json({
             count: docs.length,
-            results: docs 
+            results: docs
         });
+
     } catch (error) {
         console.error('Error al aplicar ordenamiento:', error);
         res.status(500).json({ error: 'Error en la base de datos' });
     }
 });
+
 
 /**
  * POST /skip
@@ -181,17 +199,35 @@ router.post('/skip', async (req, res) => {
     }
 
     try {
-        const docs = await db.collection(collection)
-            .find(filter)
-            .skip(skip)
-            .toArray();
+        const col = db.collection(collection);
+
+        // Si el filtro NO está vacío, validar el uso de índice
+        if (Object.keys(filter).length > 0) {
+            const explain = await col.find(filter).skip(skip).explain("executionStats");
+            const stage = explain.executionStats.executionStages;
+
+            const isCollscan = s =>
+                s.stage === "COLLSCAN" || 
+                (s.inputStage && s.inputStage.stage === "COLLSCAN");
+
+            if (isCollscan(stage)) {
+                return res.status(400).json({
+                    error: 'Consulta rechazada: no se está utilizando un índice (COLLSCAN detectado)'
+                });
+            }
+        }
+
+        // Ejecutar la consulta normalmente
+        const docs = await col.find(filter).skip(skip).toArray();
 
         res.json({ results: docs });
+
     } catch (error) {
         console.error('Error al consultar con skip:', error);
         res.status(500).json({ error: 'Error en la base de datos' });
     }
 });
+
 
 /**
  * POST /limit
@@ -216,17 +252,34 @@ router.post('/limit', async (req, res) => {
     }
 
     try {
-        const docs = await db.collection(collection)
-            .find(filter)
-            .limit(limit)
-            .toArray();
+        const col = db.collection(collection);
+
+        // Validar uso de índice si hay filtro
+        if (Object.keys(filter).length > 0) {
+            const explain = await col.find(filter).limit(limit).explain("executionStats");
+            const stage = explain.executionStats.executionStages;
+
+            const isCollscan = s =>
+                s.stage === "COLLSCAN" || 
+                (s.inputStage && s.inputStage.stage === "COLLSCAN");
+
+            if (isCollscan(stage)) {
+                return res.status(400).json({
+                    error: 'Consulta rechazada: no se está utilizando un índice (COLLSCAN detectado)'
+                });
+            }
+        }
+
+        const docs = await col.find(filter).limit(limit).toArray();
 
         res.json({ results: docs });
+
     } catch (error) {
         console.error('Error al consultar con limit:', error);
         res.status(500).json({ error: 'Error en la base de datos' });
     }
 });
+
 
 /**
  * POST /aggregate/query
@@ -266,7 +319,6 @@ router.post('/aggregate/query', async (req, res) => {
     }
 
     try {
-        // Convertir _id si es necesario
         if (match._id && typeof match._id === 'string') {
             if (ObjectId.isValid(match._id)) {
                match._id = new ObjectId(match._id);
@@ -279,6 +331,20 @@ router.post('/aggregate/query', async (req, res) => {
 
         if (Object.keys(match).length > 0) {
             pipeline.push({ $match: match });
+
+            // Solo hacer explain si hay $match
+            const explain = await db.collection(collection).aggregate(pipeline).explain("executionStats");
+            const stage = explain?.stages?.[0]?.$cursor?.executionStats?.executionStages;
+
+            const isCollscan = s =>
+                s && (s.stage === "COLLSCAN" || 
+                (s.inputStage && s.inputStage.stage === "COLLSCAN"));
+
+            if (isCollscan(stage)) {
+                return res.status(400).json({
+                    error: 'Agregación rechazada: $match no usa índice (COLLSCAN detectado)'
+                });
+            }
         }
 
         if (project) {
@@ -305,5 +371,6 @@ router.post('/aggregate/query', async (req, res) => {
         res.status(500).json({ error: 'Error al ejecutar el pipeline de agregación' });
     }
 });
+
 
 export default router;
