@@ -22,15 +22,14 @@ async function crearIndices() {
     await usuarios.createIndex({ preferencias: 1 });
     console.log('Índices multikey creados"');
 
-    // Índice geoespaciales
-    await restaurantes.createIndex({ direccion: 1 });
-    await usuarios.createIndex({ direccion: 1 });
+    // Crear índice geoespacial en el nuevo campo
+    await restaurantes.createIndex({ "ubicacion": "2dsphere" });
     console.log('Índices geoespaciales procesados');
-
+    
     // Índice de texto para búsquedas en múltiples campos
-    await restaurantes.createIndex({ nombre: 1, tipo: 1, direccion: 1 });
-    await articulosMenu.createIndex({ titulo: 1, descripcion: 1 });
-    await resenas.createIndex({ comentario: 1 });
+    await restaurantes.createIndex({ nombre: "text", tipo: "text", direccion: "text" });
+    await articulosMenu.createIndex({ titulo: "text", descripcion: "text" });
+    await resenas.createIndex({ comentario: "text" });
     console.log('Índices de texto creados');
     
   } catch (error) {
