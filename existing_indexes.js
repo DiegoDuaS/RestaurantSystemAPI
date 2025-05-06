@@ -9,12 +9,14 @@ async function crearIndices() {
     const resenas = db.collection('resenas');
     const restaurantes = db.collection('restaurantes');
     const usuarios = db.collection('usuarios');
+    
 
     // Índices simples: sobre un campo individual
     await restaurantes.createIndex({ nombre: 1 });
     await restaurantes.createIndex({ tipo: 1 });
     await restaurantes.createIndex({ rating: -1 });
     await resenas.createIndex({ rating: -1 });
+    await ordenes.createIndex({ estado: -1 });
     console.log('Índices simples creados');
 
     // Indices Compuestos: sobre 2 o mas campos
@@ -36,7 +38,7 @@ async function crearIndices() {
     // Crear índice geoespacial en el nuevo campo
     await restaurantes.createIndex({ "ubicacion": "2dsphere" });
     console.log('Índices geoespaciales procesados');
-    
+
     // Índice de texto para búsquedas en múltiples campos
     await restaurantes.createIndex({ nombre: "text", tipo: "text", direccion: "text" });
     await articulosMenu.createIndex({ titulo: "text", descripcion: "text" });
