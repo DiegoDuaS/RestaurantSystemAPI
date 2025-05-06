@@ -36,8 +36,25 @@ router.put('/update/oneDocument', async (req, res) => {
     }
 
     try {
-        const result = await db.collection(collection)
-            .updateOne(filter, update);
+        const col = db.collection(collection);
+
+        // Si el filtro NO está vacío, validar el uso de índice
+        if (Object.keys(filter).length > 0) {
+            const explain = await col.find(filter).explain("executionStats");
+            const stage = explain.executionStats.executionStages;
+
+            const isCollscan = s =>
+                s.stage === "COLLSCAN" || 
+                (s.inputStage && s.inputStage.stage === "COLLSCAN");
+
+            if (isCollscan(stage)) {
+                return res.status(400).json({
+                    error: 'Actualización rechazada: el filtro no usa un índice (COLLSCAN detectado)'
+                });
+            }
+        }
+
+        const result = await col.updateOne(filter, update);
 
         res.json({
             modifiedCount: result.modifiedCount,
@@ -48,6 +65,7 @@ router.put('/update/oneDocument', async (req, res) => {
         res.status(500).json({ error: 'Error en la base de datos' });
     } 
 });
+
 
 /**
  * PUT /update/manyDocuments
@@ -82,8 +100,25 @@ router.put('/update/manyDocuments', async (req, res) => {
     }
 
     try {
-        const result = await db.collection(collection)
-            .updateMany(filter, update);
+        const col = db.collection(collection);
+
+        // Si el filtro NO está vacío, validar el uso de índice
+        if (Object.keys(filter).length > 0) {
+            const explain = await col.find(filter).explain("executionStats");
+            const stage = explain.executionStats.executionStages;
+
+            const isCollscan = s =>
+                s.stage === "COLLSCAN" || 
+                (s.inputStage && s.inputStage.stage === "COLLSCAN");
+
+            if (isCollscan(stage)) {
+                return res.status(400).json({
+                    error: 'Actualización rechazada: el filtro no usa un índice (COLLSCAN detectado)'
+                });
+            }
+        }
+
+        const result = await col.updateMany(filter, update);
 
         res.json({
             matchedCount: result.matchedCount,
@@ -95,6 +130,7 @@ router.put('/update/manyDocuments', async (req, res) => {
         res.status(500).json({ error: 'Error en la base de datos' });
     }
 });
+
 
 
 export default router;
