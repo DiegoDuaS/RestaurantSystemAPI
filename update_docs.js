@@ -1,5 +1,6 @@
 import express from 'express';
 import { getDB } from './mongoDB-connection.js';
+import { ObjectId } from 'mongodb';
 
 const router = express.Router();
 
@@ -54,6 +55,14 @@ router.put('/update/oneDocument', async (req, res) => {
             }
         }
 
+        if (filter._id && typeof filter._id === 'string') {
+            if (ObjectId.isValid(filter._id)) {
+               filter._id = new ObjectId(filter._id);
+            } else {
+               return res.status(400).json({ error: 'El _id proporcionado no es válido' });
+            }
+        }
+
         const result = await col.updateOne(filter, update);
 
         res.json({
@@ -100,6 +109,7 @@ router.put('/update/manyDocuments', async (req, res) => {
     }
 
     try {
+        
         const col = db.collection(collection);
 
         // Si el filtro NO está vacío, validar el uso de índice
@@ -115,6 +125,14 @@ router.put('/update/manyDocuments', async (req, res) => {
                 return res.status(400).json({
                     error: 'Actualización rechazada: el filtro no usa un índice (COLLSCAN detectado)'
                 });
+            }
+        }
+
+        if (filter._id && typeof filter._id === 'string') {
+            if (ObjectId.isValid(filter._id)) {
+               filter._id = new ObjectId(filter._id);
+            } else {
+               return res.status(400).json({ error: 'El _id proporcionado no es válido' });
             }
         }
 
