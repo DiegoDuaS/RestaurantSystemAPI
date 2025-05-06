@@ -372,5 +372,93 @@ router.post('/aggregate/query', async (req, res) => {
     }
 });
 
+/**
+ * POST /aggregate/simple
+ * Realiza operaciones de agregación simples como contar documentos o listar valores distintos de un campo.
+ * 
+ * Body esperado:
+ * {
+ *   collection: "nombre_de_la_coleccion", // obligatorio
+ *   filter: {},                          // filtro opcional para match
+ *   operation: "count" | "distinct",     // tipo de operación
+ *   field: "campo"                       // campo requerido para "distinct"
+ * }
+ * 
+ * Respuesta:
+ * - Para "count": { count: número }
+ * - Para "distinct": { values: [lista de valores únicos] }
+ */
+router.post('/aggregate/simple', async (req, res) => {
+    const db = getDB();
+    const { collection, filter = {}, operation, field } = req.body;
+
+    if (!collection || !operation) {
+        return res.status(400).json({ error: "Faltan campos requeridos: 'collection' y 'operation'" });
+    }
+
+    try {
+        const col = db.collection(collection);
+        let pipeline = [];
+        
+        // Si el filtro NO está vacío, validar el uso de índice
+        if (Object.keys(filter).length > 0) {
+            const explain = await col.find(filter).explain("executionStats");
+            const stage = explain.executionStats.executionStages;
+
+            const isCollscan = s =>
+                s.stage === "COLLSCAN" || 
+                (s.inputStage && s.inputStage.stage === "COLLSCAN");
+
+            if (isCollscan(stage)) {
+                return res.status(400).json({
+                    error: 'Actualización rechazada: el filtro no usa un índice (COLLSCAN detectado)'
+                });
+            }
+        }
+
+        if (Object.keys(filter).length > 0) {
+            if (filter._id && typeof filter._id === 'string') {
+                if (ObjectId.isValid(filter._id)) {
+                   filter._id = new ObjectId(filter._id);
+                } else {
+                   return res.status(400).json({ error: 'El _id proporcionado no es válido' });
+                }
+            }
+            
+            pipeline.push({ $match: filter });
+        }
+
+        if (operation === 'count') {
+            pipeline.push({ $count: 'count' });
+        } else if (operation === 'distinct') {
+            if (!field) {
+                return res.status(400).json({ error: "El campo 'field' es obligatorio para 'distinct'" });
+            }
+
+            pipeline.push({
+                $group: { _id: `$${field}` }
+            });
+
+            pipeline.push({
+                $project: { value: '$_id', _id: 0 }
+            });
+        } else {
+            return res.status(400).json({ error: "Operación no válida. Usa 'count' o 'distinct'." });
+        }
+
+        const results = await col.aggregate(pipeline).toArray();
+
+        if (operation === 'count') {
+            res.json({ count: results[0]?.count || 0 });
+        } else {
+            res.json({ values: results.map(doc => doc.value) });
+        }
+
+    } catch (error) {
+        console.error('Error en agregación simple:', error);
+        res.status(500).json({ error: 'Error en la base de datos' });
+    }
+});
+
 
 export default router;
